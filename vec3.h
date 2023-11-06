@@ -20,11 +20,13 @@ public:
     double x() const { return _x; };
     double y() const { return _y; };
     double z() const { return _z; };
+    std::vector<double> getValues() const { return { _x, _y, _z }; }
 
     // Setters
     void setX(double x) { _x = x; };
     void setY(double y) { _y = y; };
     void setZ(double z) { _z = z; };
+    void setValues(double x, double y, double z) { _x = x; _y = y; _z = z; };
 
     // Operators - Setters
     vec3& operator=(const double i);
@@ -56,9 +58,13 @@ public:
     double ang(const vec3 &u) const;
     double dist(const vec3 &u) const;
 
+    void out() const;
+    int size() const;
+
 private:
     double _x, _y, _z;
 };
+
 
 // Fast inverse square root algorithm from Quake III Arena
 inline float q_rsqrt(float number)
@@ -225,6 +231,14 @@ double vec3::dist(const vec3 &u) const
 {
     vec3 r = *this - u;
     return r.len();
+}
+void vec3::out() const
+{
+    std::cout << "(" << _x << ", " << _y << ", " << _z << ")" << std::endl;
+}
+int vec3::size() const
+{
+    return 3;
 }
 
 #endif // VEC3_H

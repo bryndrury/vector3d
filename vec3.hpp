@@ -20,11 +20,13 @@ public:
     double x() const { return _x; };
     double y() const { return _y; };
     double z() const { return _z; };
+    std::vector<double> getValues() const { return {_x, _y, _z}; };
 
     // Setters
     void setX(double x) { _x = x; };
     void setY(double y) { _y = y; };
     void setZ(double z) { _z = z; };
+    void setValues(double x, double y, double z) { _x = x; _y = y; _z = z; };
 
     // Operators - Setters
     vec3& operator=(const double i);
@@ -55,6 +57,9 @@ public:
     double dot(const vec3 &u) const;
     double ang(const vec3 &u) const;
     double dist(const vec3 &u) const;
+
+    void out() const;
+    int size() const;
 
 private:
     double _x, _y, _z;

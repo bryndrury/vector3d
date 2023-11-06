@@ -198,3 +198,11 @@ double vec3::dist(const vec3 &u) const
     vec3 r = *this - u;
     return r.len();
 }
+void vec3::out() const
+{
+    std::cout << "(" << _x << ", " << _y << ", " << _z << ")" << std::endl;
+}
+int vec3::size() const
+{
+    return 3;
+}
